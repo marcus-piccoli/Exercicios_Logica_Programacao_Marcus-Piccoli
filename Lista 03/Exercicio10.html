@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula IMC</title>
+</head>
+<body>
+    <h2>Calcula IMC</h2>
+    
+        <label for="idPeso">Peso em Kg:</label>
+        <input type="number" id="idPeso" name="nmPeso"><br>
+        <label for="idAltura">Altura em m:</label>
+        <input type="number" id="idAltura" name="nmAltura"><br><br>
+        <input type="button" value="Calcula IMC" onclick="calculaIMC()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function calculaIMC() {
+            var peso = Number(document.getElementById("idPeso").value)
+            var altura = Number(document.getElementById("idAltura").value)
+            imc = peso / (altura * altura)
+
+            if (imc < 18.5) {
+                text = "Você está abaixo do peso."
+                console.log("Você está abaixo do peso.")
+            }
+            if (imc >= 18.5 && imc <= 25) {
+                text = "Você está no peso ideal!"
+                console.log("Você está no peso ideal!")
+            }
+            if (imc > 25 && imc <= 30) {
+                text = "Você está acima do peso."
+                console.log("Você está acima do peso.")
+            }
+            if (imc > 30 && imc <= 40) {
+                text = "Você está obeso."
+                console.log("Você está obeso.")
+            }
+            if (imc > 40) {
+                text = "Obesidade mórbida. Procure um médico urgentemente."
+                console.log("Obesidade mórbida. Procure um médico urgente.")
+            }
+        document.getElementById("idOut").value = text
+        }
+
+/* - abaixo de 18.5: Abaixo do peso
+    - entre 18.5 e 25: Peso ideal
+    - entre 25 e 30: Sobrepeso
+    - entre 30 e 40: Obesidade
+    - acima de 40: Obesidade mórbida
+*/
+
+    </script>
+</body>
+</html>

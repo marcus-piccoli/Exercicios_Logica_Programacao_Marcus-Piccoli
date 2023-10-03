@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="idNum">Insira um número</label>
+        <input type="number" id="idNum" name="nmNum"> 
+    </div><br>
+
+    <input type="button" value="Mostrar o dobro e sua terça parte" onclick="pegarresultado()"><br>
+
+    <div>
+        <output id="idResultado"></output>
+    </div>
+
+    <script>
+        var numero
+        var dobro
+        var terco
+
+        function pegarresultado() {
+            numero = Number(document.getElementById("idNum").value)
+            dobro = numero * 2
+            terco = numero / 3
+            
+            console.log("Número: " + numero)
+            console.log("Dobro: " + dobro)
+            console.log("Terça parte: " + terco)
+            document.getElementById("idResultado").value = "O dobro do número é: "+ dobro + " e a sua terça parte é: " + terco
+        }
+
+    </script>
+</body>
+</html>

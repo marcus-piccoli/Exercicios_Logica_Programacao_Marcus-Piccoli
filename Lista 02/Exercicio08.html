@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Preço final:</h2>
+
+        <label for="idNum">Digite valor do produto: </label><br>
+        <input type="number" name="nmNum" id="idNum">
+        <br><br>
+        <output id="idOut">Calcular</output>
+        <br><br>
+        <input type="Button" value="calcular" onclick="calcular()">
+
+        <script>
+            function calcular() {
+                var num = Number(document.getElementById("idNum").value)
+                var precofinal = Number(precofinal)
+
+                if (num < 20) {
+                    precofinal = num + (num * 0.5)
+                }
+                else {
+                    precofinal = num + (num * 0.35)
+                }
+            document.getElementById("idOut").value = "R$ " + precofinal
+            }
+        </script>
+</body>

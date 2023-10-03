@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    <label for="IdInicial">Numero Inicial</label>
+    <input type="number" id="idInicial" name="nmInicial"><br>
+    <label for="IdFinal">Numero Final</label>
+    <input type="number" id="idFinal" name="nmFinal"><br>
+    <input type="radio" name="nmPar" id="idPar" checked>
+    <label for="idPar">Par</label><br>
+    <input type="radio" name="nmImpar" id="idImpar">
+    <label for="idImpar">Ímpar</label><br>
+    <input type="button" value="Sequencia" onclick="sequencia()">
+    <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+
+        function sequencia (){
+
+            let numinicial = Number(document.getElementById("idInicial").value)
+            let numfinal = Number(document.getElementById("idFinal").value)
+            let impar = document.getElementById("idImpar").checked
+            let par = document.getElementById("idPar").checked
+
+            if (impar == true && (numinicial % 2 == 0)) {
+                numinicial++
+                while (numinicial <= numfinal) {
+                console.log(numinicial + " ")
+                document.write(numinicial + " ")
+                numinicial = numinicial + 2
+                }
+            }
+            if (impar == true && (numinicial % 2 == 1)) {
+                while (numinicial <= numfinal) {
+                console.log(numinicial + " ")
+                document.write(numinicial + " ")
+                numinicial = numinicial + 2
+                }
+            }
+            if (par == true && (numinicial % 2 == 0)) {
+                while (numinicial <= numfinal) {
+                console.log(numinicial + " ")
+                document.write(numinicial + " ")
+                numinicial = numinicial + 2
+                }
+            }
+            if (par == true && (numinicial % 2 == 1)) {
+                numinicial++
+                while (numinicial <= numfinal) {
+                console.log(numinicial + " ")
+                document.write(numinicial + " ")
+                numinicial = numinicial + 2
+                }
+            }
+            }
+    </script>
+</body>
+</html>

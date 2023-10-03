@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Calculadora de Área</h2>
+
+    <p>Selecione o sólido:</p>
+
+        <select id="idSolidos" onchange="pegaMedidas()">
+            <option value="circulo">Círculo</option>
+            <option value="retangulo">Retângulo</option>
+            <option value="trianguloret">Triângulo Retângulo</option>
+            <option value="trianguloequi">Triângulo Equilátero</option>
+        </select>
+
+        <div id="idMedidas"></div>
+
+        <p id="idResultado"></p>
+
+    <script>
+        function pegaMedidas() {
+            var solido = document.getElementById("idSolidos").value
+            var medidas = document.getElementById("idMedidas")
+            medidas.innerHTML = ''
+  
+        if (solido == "circulo") {
+            medidas.innerHTML += 'Raio: <input id="idRaio" type="number" name="nmRaio" oninput="calcularArea()"><br>'
+        } else if (solido == "retangulo") {
+            medidas.innerHTML += 'Lado 1: <input id="idLado1" type="number" name="nmLado1" oninput="calcularArea()"><br>'
+            medidas.innerHTML += 'Lado 2: <input id="idLado2" type="number" name="nmLado2" oninput="calcularArea()"><br>'
+        } else if (solido == "trianguloret") {
+            medidas.innerHTML += 'Base: <input id="idBase" type="number" name="nmBase" oninput="calcularArea()"><br>'
+            medidas.innerHTML += 'Altura: <input id="idAltura" type="number" name="nmAltura" oninput="calcularArea()"><br>'
+        } else if (solido == "trianguloequi") {
+            medidas.innerHTML += 'lado: <input id="idLado" type="number" name="nmLado" oninput="calcularArea()"><br>'
+        }
+        }
+
+        function calcularArea() {
+            var solido = document.getElementById("idSolidos").value
+            var resultado = document.getElementById("idResultado")
+  
+            if (solido == "circulo") {
+            var raio = document.getElementById("idRaio").value
+                resultado.innerHTML = 'Área: ' + (Math.PI * raio * raio)
+            } else if (solido == "retangulo") {
+                var lado1 = document.getElementById("idLado1").value
+                var lado2 = document.getElementById("idLado2").value
+                resultado.innerHTML = 'Área: ' + (lado1 * lado2)
+            } else if (solido == "trianguloret") {
+                var base = document.getElementById("idBase").value
+                var altura = document.getElementById("idAltura").value
+                resultado.innerHTML = 'Área: ' + (0.5 * base * altura)
+            } else if (solido == "trianguloequi") {
+                var lado = document.getElementById("idLado").value
+                resultado.innerHTML = 'Área: ' + ((Math.sqrt(3) / 4) * lado * lado)
+            }
+        }
+    </script>
+</body>
+</html>

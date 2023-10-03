@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verifique qual número é maior</h2>
+
+        <label for="idNum1">Primeiro número: </label><br>
+        <input type="number" name="nmNum1" id="idNum1">
+        <br><br>
+        <label for="idNum2">Segundo número: </label><br>
+        <input type="number" name="nmNum2" id="idNum2">
+        <br><br>
+        <label for="idNum3">Terceiro número: </label><br>
+        <input type="number" name="nmNum3" id="idNum3">
+        <br><br>
+        <output id="idOut">Maior número: </output>
+        <br><br>
+        <input type="Button" value="calcular" onclick="calcular()">
+
+        <script>
+            function calcular() {
+                var num1 = Number(document.getElementById("idNum1").value)
+                var num2 = Number(document.getElementById("idNum2").value)
+                var num3 = Number(document.getElementById("idNum3").value)
+                var text
+
+                if (num1 > num2 && num1 > num3) {
+                    text = "O primeiro número (" + num1 + ") é o maior dos 3."
+                }
+                else if (num2 > num1 && num2 > num3){
+                    text = "O segundo número (" + num2 + ") é o maior dos 3."
+                }
+                else {
+                    text = "O terceiro número (" + num3 + ") é o maior dos 3."
+                }
+            document.getElementById("idOut").value = text
+            }
+        </script>
+</body>
+</html>

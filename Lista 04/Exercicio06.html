@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="Contar" onclick="contar()">
+    <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        i = 30
+        
+        function contar() {
+
+            while (i >= 1) {
+                if (i % 4 == 0){
+                    console.log("[" + i + "] ")
+                    document.write("[" + i + "] ")
+                }
+                else {
+                    console.log(i + " ")
+                    document.write(i + " ")
+                }
+                i--
+            }
+
+        }
+    </script>
+</body>
+</html>

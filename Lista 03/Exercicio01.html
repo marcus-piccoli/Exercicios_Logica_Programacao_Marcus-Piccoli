@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de fazer dinheiro da prefeitura</title>
+</head>
+<body>
+    <h2>Máquina de fazer dinheiro da prefeitura</h2>
+    
+        <label for="idVelocidade">Velocidade</label>
+        <input type="number" id="idVelocidade" name="nmVelocidade">
+        <input type="button" value="Consultar infração" onclick="consultainfracao()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function consultainfracao() {
+            var velocidade = Number(document.getElementById("idVelocidade").value)
+            var text
+
+            if (velocidade > 80) {
+                multa = (velocidade - 80) * 5
+                text = "Você foi multado em " + "R$ " + multa + "."
+                console.log("Você foi multado em " + "R$ " + multa + ".")
+            }
+            else {
+                text = "Não houve infração"
+                console.log("Não houve infração!")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

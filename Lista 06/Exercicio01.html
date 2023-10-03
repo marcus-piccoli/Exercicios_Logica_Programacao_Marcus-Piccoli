@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Execício vetores 01</h2>
+
+    <output id="idOut"></output>
+
+    <script>
+        var vetor = [[]]
+        
+        for (var i = 0; i < 10; i++) {
+            vetor[0][i] = i * 5
+        }
+
+        for (var i = 0; i < vetor.length; i++) {
+            vetor[i] = vetor[i].join(' | ')
+        }
+
+        console.log(vetor)
+        
+        document.getElementById("idOut").innerHTML = vetor
+        </script>
+</body>
+</html>

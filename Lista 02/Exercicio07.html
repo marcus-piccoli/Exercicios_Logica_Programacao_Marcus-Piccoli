@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Calcular salário com desconto INSS: </h2>
+
+        <label for="idSalario">Digite o salário: </label><br>
+        <input type="number" name="nmSalario" id="idSalario">
+        <br><br>
+        <output id="idOut">Calcular</output>
+        <br><br>
+        <input type="Button" value="Calcular" onclick="calcular()">
+
+        <script>
+            function calcular() {
+                var salario = Number(document.getElementById("idSalario").value)
+                var liquido
+
+                if (salario <= 600) {
+                    liquido = salario
+                }
+                if (salario > 600 && salario <= 1200) {
+                    liquido = salario - (salario * 0.25)
+                }
+                if (salario > 1200 && salario <= 2000){
+                    liquido = salario - (salario * 0.3)
+                }
+                if (salario > 2000){
+                    liquido = salario - (salario * 0.35)
+                }
+            document.getElementById("idOut").value = "Salário líquido: R$ " + liquido
+            }
+        </script>
+</body>
+</html>

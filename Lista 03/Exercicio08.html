@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular valor da passagem</title>
+</head>
+<body>
+    <h2>Calcular valor da passagem</h2>
+    
+        <label for="idDistancia">Distância</label>
+        <input type="number" id="idDistância" name="nmDistância">
+        <input type="button" value="Consultar infração" onclick="consultainfracao()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function consultainfracao() {
+            var distancia = Number(document.getElementById("idDistância").value)
+            var text
+
+            if (distancia < 200) {
+                passagem = distancia * 0.5
+                text = "O valor da passagem é de: " + "R$ " + passagem + "."
+                console.log("O valor da passagem é de: " + "R$ " + passagem + ".")
+            }
+            else {
+                passagem = distancia * 0.45
+                text = "O valor da passagem é de: " + "R$ " + passagem + "."
+                console.log("O valor da passagem é de: " + "R$ " + passagem + ".")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

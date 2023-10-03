@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou ímpar</title>
+</head>
+<body>
+    <h2>Par ou ímpar</h2>
+    
+        <label for="idNum">Número</label>
+        <input type="number" id="idNum" name="nmNum">
+        <input type="button" value="Consultar número" onclick="consultanumero()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function consultanumero() {
+            var numero = Number(document.getElementById("idNum").value)
+            var resto = numero % 2
+            var text
+
+            if (resto == 0) {
+                text = "O número é par"
+                console.log("O número é par")
+            }
+            else {
+                text = "O número é ímpar"
+                console.log("O número é ímpar")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

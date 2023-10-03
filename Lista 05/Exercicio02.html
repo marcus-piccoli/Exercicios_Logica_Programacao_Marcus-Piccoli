@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostra números primos</title>
+</head>
+<body>
+    <h2>Números primos em um determinado intervalo</h2>
+
+    <p>Número inicial: <input type="number" name="nmNumIni" id="idNumIni"></p>
+    <p>Número final: <input type="number" name="nmNumFim" id="idNumFim"></p>
+    <input type="button" value="Consultar número" onclick="mostrarPrimos()">
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function mostrarPrimos() {
+            var numIni = document.getElementById("idNumIni").value
+            var numFim = document.getElementById("idNumFim").value
+            var text = ""
+            for (var i = numIni; i <= numFim; i++) {
+                if (ehPrimo(i)) {
+                    text += i + "<br>"
+                }
+            }
+            document.getElementById("idOut").innerHTML = text
+        }
+
+        function ehPrimo(num) {
+            for(var i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++)
+            if(num % i === 0) return false;
+            return num > 1
+        }
+
+    </script>
+</body>
+</html>

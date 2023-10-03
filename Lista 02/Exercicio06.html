@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Calculadora </h2>
+
+        <label for="idNum1">Primeiro número: </label><br>
+        <input type="number" name="nmNum1" id="idNum1">
+        <br><br>
+        <label for="idNum2">Segundo número: </label><br>
+        <input type="number" name="nmNum2" id="idNum2">
+        <br><br>
+        <output id="idOut">Ordem decrescente: </output>
+        <br><br>
+        <div display="flex">
+            <input type="Button" value="Soma" onclick="somar()">
+            <input type="Button" value="Subtração" onclick="subtrair()">
+            <input type="Button" value="Multiplicação" onclick="multiplicar()">
+            <input type="Button" value="Divisão" onclick="dividir()">
+        </div>
+
+        <script>
+            function somar() {
+                var num1 = Number(document.getElementById("idNum1").value)
+                var num2 = Number(document.getElementById("idNum2").value)
+                resultado = num1 + num2
+            document.getElementById("idOut").value = resultado
+            }
+            function subtrair() {
+                var num1 = Number(document.getElementById("idNum1").value)
+                var num2 = Number(document.getElementById("idNum2").value)
+                resultado = num1 - num2
+            document.getElementById("idOut").value = resultado
+            }
+            function multiplicar() {
+                var num1 = Number(document.getElementById("idNum1").value)
+                var num2 = Number(document.getElementById("idNum2").value)
+                resultado = num1 * num2
+            document.getElementById("idOut").value = resultado
+            }
+            function dividir() {
+                var num1 = Number(document.getElementById("idNum1").value)
+                var num2 = Number(document.getElementById("idNum2").value)
+                resultado = num1 / num2
+            document.getElementById("idOut").value = resultado
+            }
+        </script>
+</body>
+</html>

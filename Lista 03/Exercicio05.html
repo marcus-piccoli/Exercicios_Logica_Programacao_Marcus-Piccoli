@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Ano</title>
+</head>
+<body>
+    <h2>Consulta Ano</h2>
+    
+        <label for="idAno">Número</label>
+        <input type="number" id="idAno" name="nmAno">
+        <input type="button" value="Consultar número" onclick="consultaano()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function consultaano() {
+            let ano = Number(document.getElementById("idAno").value)
+            let resto4 = ano % 4
+            let resto100 = ano % 100
+            let resto400 = ano % 400
+
+
+            if ((resto4 == 0 && resto100 != 0) || (resto400 == 0)) {
+                text = "O ano é bissexto"
+                console.log("O ano é bissexto")
+            }
+            else {
+                text = "O ano não é bissexto"
+                console.log("O ano não é bissexto")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

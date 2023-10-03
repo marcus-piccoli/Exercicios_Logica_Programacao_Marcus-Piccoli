@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade eleitoral</title>
+</head>
+<body>
+    <h2>Idade eleitoral</h2>
+    
+        <label for="idAno">Ano</label>
+        <input type="number" id="idAno" name="nmAno">
+        <input type="button" value="Consultar idade" onclick="consultaano()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function consultaano() {
+            var ano = Number(document.getElementById("idAno").value)
+            var idade = 2023 - ano
+
+            if (idade >= 16) {
+                text = "Já pode votar!"
+                console.log("Já pode votar!")
+            }
+            else {
+                text = "Não pode votar!"
+                console.log("Não pode votar!")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

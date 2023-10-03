@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="idDin">Digite o montante: </label>
+        <input type="number" id="idDin" name="nmDin"> 
+    </div><br>
+
+    <input type="button" value="Converter em dólar" onclick="pegarresultado()"><br>
+
+    <div>
+        <output id="idResultado"></output>
+    </div>
+
+    <script>
+        var dinheiro
+        var dolar
+
+        function pegarresultado() {
+            dinheiro = Number(document.getElementById("idDin").value)
+            dolar = dinheiro / 3.45
+            compra = dolar.toFixed(2)
+                        
+            console.log("Quantos dólares: " + dolar)
+            
+            document.getElementById("idResultado").value = "Você pode comprar $" + compra
+        }
+
+    </script>
+</body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <style>
+        .page{
+            display: flex;
+            margin-left: 30%;
+            margin-right: 30%;
+            flex-direction: column;
+        }
+
+        .button{
+            width: 300px;
+        }
+    </style>
+<body class="page">
+
+    <div>
+        <label for="idLargura">Largura</label>
+        <input type="number" id="idLargura" name="nmLargura"> 
+    </div><br>
+    <div>
+        <label for="idAltura">Altura</label>
+        <input type="number" id="idAltura" name="nmAltura"> 
+    </div><br>
+
+    <div>
+    <input class="button" type="button" value="Área a ser pintada" onclick="pegarresultado()"><br>
+    </div>
+
+    <div>
+        <output id="idResultado"></output>
+    </div>
+
+    <script>
+        var largura
+        var altura
+        var area
+        var tinta
+
+        function pegarresultado() {
+            largura = Number(document.getElementById("idLargura").value)
+            altura = Number(document.getElementById("idAltura").value)
+            area = (largura * altura).toFixed(2)
+            tinta = (area / 2).toFixed(2)
+
+            console.log("Área: " + area)
+            console.log("Quantidade de Tinta em (L): " + tinta)
+            document.getElementById("idResultado").innerHTML = "A área a ser pintada é de: "+ area + "m²" + "<br>A quantidade de tinta em necessária é de: " + tinta + "L"
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="idDist">Insira a Distância que quer converter</label>
+        <input type="number" id="idDist" name="nmDist"> 
+    </div><br>
+
+    <input type="button" value="Converter metros em outras unidades" onclick="pegarresultado()"><br>
+
+    <div>
+        <output id="idResultado"></output>
+    </div>
+
+    <script>
+        var distancia
+
+        function pegarresultado() {
+            distancia = Number(document.getElementById("idDist").value)
+            kilometro = distancia / 1000
+            hectometro = distancia / 100
+            decametro = distancia / 10
+            decimetro = distancia * 10
+            centimetro = distancia * 100
+            milimetro = distancia * 1000
+            
+            console.log("Distancia: " + distancia)
+            console.log("Km: " + kilometro)
+            console.log("Hm: " + hectometro)
+            console.log("Dam: " + decametro)
+            console.log("dm: " + decimetro)
+            console.log("cm: " + centimetro)
+            console.log("mm: " + milimetro)
+            document.getElementById("idResultado").innerHTML = "Distäncia digitada: "+ distancia +"m" + "<br>- Em Km: " + kilometro + "<br>- Em Hm: " + hectometro + "<br>- Em Dam: " + decametro + "<br>- Em dm: " + decimetro + "<br>- Em cm: " + centimetro + "<br>- Em mm: " + milimetro
+        }
+
+    </script>
+</body>
+</html>

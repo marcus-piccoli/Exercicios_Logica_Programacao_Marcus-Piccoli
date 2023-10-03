@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verificando usuário:</h2>
+    
+        <label for="idUser">Usuário: </label><br>
+        <input type="text" name="nmUser" id="idUser">
+        <br><br>
+        <label for="idPass">Senha: </label><br>
+        <input type="password" name="nmPass" id="idPass">
+        <br><br>
+        <input type="Button" value="Entrar" onclick="compararUsuarios()">
+        <br><br>
+    
+    <script>
+        function compararUsuarios(){
+            var usuarios = {
+                "marcus": "123456",
+                "stephanie": "456789",
+                "sandra": "123789"
+            }
+            var usuario = document.getElementById("idUser").value
+            var senha = document.getElementById("idPass").value
+
+            if (usuario in usuarios) {
+                if (senha === usuarios[usuario]) {
+                    alert("Usuário e senha corretos")
+                } else {
+                    alert("Senha incorreta")
+                }
+            } else {
+                alert("Usuário não cadastrado")
+            }
+        }
+    </script>
+</body>
+</html>

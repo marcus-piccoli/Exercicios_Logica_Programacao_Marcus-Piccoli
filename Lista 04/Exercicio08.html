@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="idnum1">Insira o primeiro número</label>
+    <input type="number" id="idNum1" name="nmNum1">
+    <label for="idnum2">Insira o segundo número</label>
+    <input type="number" id="idNum2" name="nmNum2">
+    <label for="idIncremento">Insira o incremento</label>
+    <input type="number" id="idIncremento" name="nmIncremento">
+    <input type="button" value="Contar" onclick="contar()">
+    <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        
+        function contar() {
+
+            var numero1 = Number(document.getElementById("idNum1").value)
+            var numero2 = Number(document.getElementById("idNum2").value)
+            var i = Number(document.getElementById("idIncremento").value)
+
+            document.write("Contagem: ")
+            
+            while (numero1 <= numero2) {
+                console.log(numero1)
+                document.write(numero1 + " ")
+                numero1 = numero1 + i
+            }
+
+            document.write(" Acabou!")
+        }
+    </script>
+</body>
+</html>

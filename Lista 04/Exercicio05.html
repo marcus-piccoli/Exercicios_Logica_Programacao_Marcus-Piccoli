@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="idnum">Insira um número </label>
+    <input type="number" id="idNum" name="nmNum">
+    <input type="button" value="Contar" onclick="contar()">
+    <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        i = 1
+        
+        function contar() {
+
+            var numero = Number(document.getElementById("idNum").value)
+
+            document.write("Inicio<br>")
+            
+            while (i <= numero) {
+                console.log(+ i)
+                document.write(i + "<br>")
+                i++
+            }
+
+            document.write(" Acabou!")
+        }
+    </script>
+</body>
+</html>

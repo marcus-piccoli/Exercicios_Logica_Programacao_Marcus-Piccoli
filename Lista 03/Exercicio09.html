@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma triangulo</title>
+</head>
+<body>
+    <h2>Forma triangulo?</h2>
+    
+        <label for="idReta1">Reta 1:</label>
+        <input type="number" id="idReta1" name="nmReta1"><br>
+        <label for="idReta2">Reta 2:</label>
+        <input type="number" id="idReta2" name="nmReta2"><br>
+        <label for="idReta3">Reta 3:</label>
+        <input type="number" id="idReta3" name="nmReta3"><br><br>
+        <input type="button" value="Forma Triangulo?" onclick="Resultado()">
+        <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        function Resultado() {
+            var reta1 = Number(document.getElementById("idReta1").value)
+            var reta2 = Number(document.getElementById("idReta2").value)
+            var reta3 = Number(document.getElementById("idReta3").value)
+
+            if ((reta1 < (reta2 + reta3)) && (reta2 < (reta1 + reta3)) && (reta3 < (reta1 + reta2))) {
+                text = "É possível formar um triangulo"
+                console.log("É possível formar um triangulo")
+            }
+            else {
+                text = "Não é possível formar um triangulo"
+                console.log("Não é possível formar um triangulo")
+            }
+        document.getElementById("idOut").value = text
+        }
+    </script>
+</body>
+</html>

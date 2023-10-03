@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Números divisíveis por 3 ou 5 entre 1 e 100</h2>
+
+    <input type="button" value="Contar" onclick="mostranumeros()">
+    <br><br>
+
+    <div>
+        <output id="idOut"></output>
+    </div>
+
+    <script>
+        var text = ""
+        var i;
+        
+        function mostranumeros(){
+            for (i = 1; i <= 100; i++) {
+                if (i % 3 === 0 || i % 5 === 0) {
+                text += i + "<br>"
+                }
+            }
+            document.getElementById("idOut").innerHTML = text
+        }
+    </script>
+</body>
+</html>

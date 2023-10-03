@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="idNome">Nome</label>
+        <input type="text" id="idNome" name="nmNome" placeholder="John Doe"> 
+    </div><br>
+    <div>
+        <label for="idSalario">Salario</label>
+        <input type="text" id="idSalario" name="nmSalario" placeholder="0"> 
+    </div><br>
+
+    <input type="button" value="Mostrar dados" onclick="pegarDados()">
+
+    <div>
+        <output id="idSaida"></output>
+    </div>
+
+    <script>
+        function pegarDados() {
+            let nome
+            let salario
+            nome = document.getElementById("idNome").value
+            salario = document.getElementById("idSalario").value
+
+            console.log("Nome: " + nome);
+            console.log("Salario: " + salario);
+
+            document.getElementById("idSaida").value = "O Funcionário "+ nome + " tem um salário de " + salario + " em Junho."
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verifique se o número é menor, maior ou igual a 20!</h2>
+
+        <label for="idNum">Digite o número: </label><br>
+        <input type="number" name="nmNum" id="idNum">
+        <br><br>
+        <output id="idOut">Maior número: </output>
+        <br><br>
+        <input type="Button" value="calcular" onclick="calcular()">
+
+        <script>
+            function calcular() {
+                var num = document.getElementById("idNum").value
+                var text
+
+                if (num > 20) {
+                    text = "O número (" + num + ") é o maior que 20."
+                }
+                else if (num == 20){
+                    text = "O número (" + num + ") é o igual a 20."
+                }
+                else {
+                    text = "O número (" + num + ") é o menor que 20."
+                }
+            document.getElementById("idOut").value = text
+            }
+        </script>
+</body>
