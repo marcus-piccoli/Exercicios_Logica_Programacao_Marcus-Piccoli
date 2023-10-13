@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Informe a idade das pessoas</h2>
+        
+        <button onclick="idade()">Digitar Idade</button>
+        <button onclick="calcular()">Calcular</button>
+
+        <output id="idOut"></output>
+        
+        <script>
+            var idades = []
+        
+            function idade() {
+                let idade = prompt("Por favor, informe a idade da pessoa:")
+                if (idade != null) {
+                    idades.push(parseInt(idade))
+                    console.log(idade)
+                }
+            }
+        
+            function calcular() {
+                let soma = 0
+                let maisde18 = 0
+                let menosde5 = 0
+                let maiorIdade = 0
+        
+                for(let i = 0; i < idades.length; i++) {
+                    soma += idades[i]
+                    if(idades[i] >= 18) maisde18++
+                    if(idades[i] <= 5) menosde5++
+                    if(idades[i] > maiorIdade) maiorIdade = idades[i]
+                }
+        
+                let mediaIdade = (soma / idades.length).toFixed(2)
+
+                console.log("Média de idade: " + mediaIdade +
+                ", Pessoas com mais de 18 anos: " + maisde18 +
+                ", Pessoas com menos de 5 anos: " + menosde5 +
+                ", Maior idade: " + maiorIdade)
+
+                document.getElementById("idOut").innerHTML = "<br>Média de idade: " + mediaIdade +
+                "<br>Pessoas com mais de 18 anos: " + maisde18 +
+                "<br>Pessoas com menos de 5 anos: " + menosde5 +
+                "<br>Maior idade: " + maiorIdade
+            }
+            
+        </script>
+</body>
+</html>
