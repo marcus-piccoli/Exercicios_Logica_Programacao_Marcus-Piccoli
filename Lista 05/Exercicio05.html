@@ -6,30 +6,30 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <h2>Insira os preços dos produtos</h2>
 
-    <h2>Gerar 20 números aleatórios</h2>
+    <button onclick="adicionarPreco()">Adicionar preço</button>
+    <button onclick="calcular()">Mostrar maior e menor preço</button>
 
-    <button onclick="gerarNumeros()">Gerar números</button>
-
-    <p id="numeros"></p>
+    <output id="idOut"></output>
 
     <script>
-        //Função de click
-        
-        function gerarNumeros() {
-            var vetor = []
-            var texto = ""
-        
-        // Loop
-        
-        for (var i = 0; i < 20; i++) {
-            vetor[i] = Math.floor(Math.random() * 1000) //Limitando o valor dos números para 1000
-            texto += vetor[i] + ", "
-        } 
+        var precos = [];
 
-        document.getElementById("numeros").innerHTML = texto
-        console.log(vetor)
+        function adicionarPreco() {
+            var preco = prompt("Por favor, insira o preço do produto:")
+            if (preco != null) {
+                precos.push(parseFloat(preco))
+            }
         }
-    </script>
+
+        function calcular() {
+            var min = Math.min(...precos)
+            var max = Math.max(...precos)
+            document.getElementById("idOut").innerHTML += "<br>" + "O menor preço é: " + min + "<br>"
+            document.getElementById("idOut").innerHTML += "O maior preço é: " + max
+        }
+</script>
 </body>
 </html>

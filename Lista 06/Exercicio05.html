@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Gerar 20 números aleatórios</h2>
+
+    <button onclick="gerarNumeros()">Gerar números</button>
+
+    <p id="numeros"></p>
+
+    <script>
+        //Função de click
+        
+        function gerarNumeros() {
+            var vetor = []
+            var texto = ""
+        
+        // Loop
+        
+        for (var i = 0; i < 20; i++) {
+            vetor[i] = Math.floor(Math.random() * 1000) //Limitando o valor dos números para 1000
+            texto += vetor[i] + ", "
+        } 
+
+        document.getElementById("numeros").innerHTML = texto
+        console.log(vetor)
+        }
+    </script>
+</body>
+</html>
