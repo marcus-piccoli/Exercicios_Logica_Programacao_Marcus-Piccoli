@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <h2>Insira os preços dos produtos</h2>
 
     <button onclick="adicionarPreco()">Adicionar preço</button>
@@ -18,7 +18,7 @@
         var precos = [];
 
         function adicionarPreco() {
-            var preco = prompt("Por favor, insira o preço do produto:")
+            var preco = prompt("Por favor, insira o preço do produto:") //Com prompt precisa de label? -- Qual fica mais legível ou prático?
             if (preco != null) {
                 precos.push(parseFloat(preco))
             }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Jogo da Adivinhação</h2>
+
+    <button onclick="jogar()">Jogar</button>
+
+    <output id="idOut"></output>
+
+    <script>
+        var numAleatorio
+        var tentativas = 0
+
+        function jogar() {
+            numAleatorio = Math.floor(Math.random() * 10) + 1
+            document.getElementById("idOut").innerHTML = "Jogo iniciado! Digite um número entre 1 e 10:"
+            let input = document.createElement("input")
+            input.type = "number" //especifica que o input seja apenas número
+            input.id = "numPalpite" // id para ser usada na outra função
+            input.min = 1
+            input.max = 10
+            let submit = document.createElement("button")
+            submit.innerHTML = "Enviar Palpite"
+            submit.onclick = numPalpite
+            document.getElementById("idOut").appendChild(input)
+            document.getElementById("idOut").appendChild(submit)
+        }
+
+        function numPalpite() {
+            let numPalpite = document.getElementById("numPalpite").value
+            tentativas++
+            if (tentativas >= 3 && numPalpite != numAleatorio) {
+                alert("Você não conseguiu adivinhar o número. O número era " + numAleatorio)
+                location.reload() // recarrega página
+                return 0 // só consegui fazer as outras mensagens não aparecerem com o return, não lembro de outra função, perguntar para professor
+            }
+            if (numPalpite < numAleatorio) {
+                alert("O número é maior! Tente novamente.")
+            } else if (numPalpite > numAleatorio) {
+                alert("O número é menor! Tente novamente.")
+            } else {
+                alert("Parabéns! Você acertou o número em " + tentativas + " tentativas!")
+            location.reload()
+            }
+        }
+    </script>
+</body>
+</html>
