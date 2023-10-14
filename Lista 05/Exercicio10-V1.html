@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        fieldset{
+            width: 20%;
+            margin: 0 30% 0 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        h2 {
+            width: 20%;
+            margin: 0 25% 0 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+<body>
+    <h2>Conversor de Moedas</h2>
+
+    <fieldset>
+        <h3>Selecione a moeda que deseja converter</h3>
+        <select id="idConvDe">
+            <option value="USD">Dólar Americano</option>
+            <option value="CAD">Dólar Canadense</option>
+            <option value="EUR">Euro</option>
+            <option value="BRL">Real</option>
+            <option value="GBP">Libra Esterlina</option>
+        </select>
+    </fieldset><br>
+
+    <fieldset>
+        <h3>Digite a quantidade</h3>
+        <input id="idQuantia" placeholder="Quantidade">
+    </fieldset><br>     
+
+    <fieldset>
+        <h3>Converter para</h3>
+        <select id="idConvPara">
+            <option value="USD">Dólar Americano</option>
+            <option value="CAD">Dólar Canadense</option>
+            <option value="EUR">Euro</option>
+            <option value="BRL">Real</option>
+            <option value="GBP">Libra Esterlina</option>
+        </select>
+    </fieldset><br>
+
+    <fieldset>
+        <h3>Insira a taxa de câmbio</h3>
+        <input id="idRate" placeholder="Taxa de câmbio">
+    </fieldset><br>
+    <button onclick="convert()">Converter</button>
+
+    <output id="idResultado"></output>
+
+    <script>
+        function convert() {
+            const converterDe = document.getElementById("idConvDe").value
+            const converterPara = document.getElementById("idConvPara").value
+            const quantia = document.getElementById("idQuantia").value
+            const rate = document.getElementById("idRate").value
+
+            const result = rate * quantia
+
+        document.getElementById("idResultado").innerHTML = `$${quantia} ${converterDe} convertido para ${converterPara} é: $${result} ${converterPara}` //crase para incorporar as expressões dentro da string
+        console.log(`${quantia} ${converterDe} convertido para ${converterPara} é: ${result} ${converterPara}`)
+    }
+    </script>
+</body>
+</html>
