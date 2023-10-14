@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<html>
+<body>
+
+    <h2>Conversor de Celsius para Fahrenheit</h2>
+
+    <label for="idTempC">Digite a temperatura em Celsius: </label><br><br>
+    <input type="number" id="idTempC" name="nmTempC"><br><br>
+    <button onclick="calcular()">Calcular</button>
+
+    <output id="idOut"></output>
+    
+    <script>
+        
+
+        function calcular() {
+            let Celsius = document.getElementById("idTempC").value
+            Fahren = ((9 * Celsius) + 160) / 5
+
+            console.log("A temperatura digitada em Celsius doi de: " + Celsius)
+            console.log("A temperatura em Fahrenheit é de: " + Fahren)
+            
+            document.getElementById("idOut").innerHTML = "<br>A temperatura digitade em Celsius foi de: " + Celsius + "°" + "<br>Convertida em Fahrenheit: " + Fahren + "°"
+        }
+    </script>
+</body>
+</html>
