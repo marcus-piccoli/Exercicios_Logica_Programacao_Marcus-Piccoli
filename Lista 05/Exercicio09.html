@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Conversor de temperatura</h2>
+
+    <p>Selecione a unidade de temperatura que quer converter:</p>
+
+        <select id="idUnidade" onchange="pegaTemperatura()">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenreit">Fahrenreit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+
+        <div id="idTemp"></div>
+
+        <p id="idResultado"></p>
+
+    <script>
+        function pegaTemperatura() {
+            var unidade = document.getElementById("idUnidade").value
+            var temp = document.getElementById("idTemp")
+            temp.innerHTML = ''
+  
+        if (unidade == "celsius") {
+            temp.innerHTML += 'Celsius: <input id="idCelsius" type="number" name="nmCelsius" oninput="calcularArea()"><br>'
+        } else if (unidade == "fahrenreit") {
+            temp.innerHTML += 'Fahrenheit: <input id="idFahrenheit" type="number" name="nmFahrenheit" oninput="calcularArea()"><br>'
+        } else if (unidade == "kelvin") {
+            temp.innerHTML += 'kelvin: <input id="idKelvin" type="number" name="nmKelvin" oninput="calcularArea()"><br>'
+        }
+        }
+
+        function calcularArea() {
+            var unidade = document.getElementById("idUnidade").value
+            var resultado = document.getElementById("idResultado")
+  
+            if (unidade == "celsius") {
+            var celsius = Number(document.getElementById("idCelsius").value).toFixed(2)
+                resultado.innerHTML = '<br>Em Fahrenheit: ' + (((9 * celsius) + 160) / 5) + '<br>Em Kelvin: ' + (celsius + 273)
+            } else if (unidade == "fahrenreit") {
+                var fahrenheit = Number(document.getElementById("idFahrenheit").value).toFixed(2)
+                resultado.innerHTML = '<br>Em Celsius: ' + (((fahrenheit * 5) - 160) / 9) + '<br>Em Kelvin: ' + ((((fahrenheit * 5) - 160) / 9) + 273)
+            } else if (unidade == "kelvin") {
+                var kelvin = Number(document.getElementById("idKelvin").value).toFixed(2)
+                resultado.innerHTML = '<br>Em Clesius: ' + (kelvin - 273) + '<br>Em Fahrenheit: ' + ((((kelvin - 273) * 9) + 160) / 5)
+            }
+        }
+    </script>
+</body>
+</html>
