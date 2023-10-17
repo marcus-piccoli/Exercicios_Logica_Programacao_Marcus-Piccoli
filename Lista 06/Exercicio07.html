@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L06E07</title>
+</head>
+
+<body>
+
+    <h2>Mostra Vetor e Múltiplos</h2>
+
+    <label for="idNum">Digite o número: </label><br>
+    <input type="number" name="nmNum" id="idNum">
+    <br><br>
+    <input type="Button" value="Inserir Número" onclick="addNum()">
+    <button onclick="executar()">Executar função</button>
+    <button onclick="reset()">Reiniciar</button>
+    
+    <output id="idOut"></output>
+    
+    <script>
+        let vetor = []
+    
+        function addNum() {
+            let num = Number(document.getElementById("idNum").value)
+            let add = Number
+            vetor.push(num)
+            document.getElementById("idNum").value = "" //limpar campo do input, tem outra forma?
+            add.innerHTML = "Vetor: <br>" + vetor
+        }
+    
+        function executar() {
+            let multiplosDez = []
+            for(let i=0; i<vetor.length; i++){
+                if(vetor[i] % 10 == 0){
+                multiplosDez.push(i)
+            }
+            }
+      
+            let add = document.getElementById("idOut")
+      
+            if(multiplosDez.length > 0){
+                add.innerHTML +=  "<br>Vetor: <br>" + vetor + "<br><br>Múltiplos de 10 nas posições: <br>" + multiplosDez
+            } else {
+                add.innerHTML += "<br>Vetor: <br>" + vetor + "<br><br>Não há múltiplos de 10 no vetor."
+            }
+            }
+        function reset() {
+            location.reload()
+        }
+    </script>
+
+</body>
+</html>
