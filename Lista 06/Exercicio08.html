@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L06E08</title>
+</head>
+<body>
+    
+    <h2>Busca de número em sorteio</h2>
+
+    <button onclick="sortear()">Sortear e buscar número</button>
+
+    <output id="idOut"></output>
+
+    <script>
+        function sortear() {
+            let sorteio = []
+            for (let i = 0; i < 30; i++) {
+            sorteio.push(Math.floor(Math.random() * 15) + 1)
+            } 
+
+            let numero = parseInt(prompt("Digite um número entre 1 e 15:")) // É bom usar o prompt ou adicionar como input no html é melhor?
+
+            let posicoes = []
+            for (let i = 0; i < sorteio.length; i++) {
+            if (sorteio[i] == numero) {
+                posicoes.push(i + 1) //adiciona uma posição ao vetor para que comece com 1 e não com 0
+                }
+            if (posicoes.length > 0) {
+                document.getElementById("idOut").innerHTML = "<br><br>Sorteio: " + sorteio.join(" | ") + "<br><br>O Número: " + numero + " aparece na(s) posição(ões) " + posicoes + " e foi sorteado " + posicoes.length + " vez(es)."
+            } else {
+            document.getElementById("idOut").innerHTML = "<br><br>O número " + numero + " não foi sorteado.<br><br>Os números sorteados foram: " + sorteio
+            }       
+            }
+        }
+</script>
+</body>
+</html>
