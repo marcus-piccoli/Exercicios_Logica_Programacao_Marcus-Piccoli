@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sequencia Fibonacci</title>
 </head>
-<body>
-    
-    <h2>Execício vetores 03</h2>
+    <h2>Os 10 primeiros números da sequência de Fibonacci</h2>
 
-    <output id="idOut"></output>
+    <output id="idOut" ></output>
 
     <script>
-        var vetor = [[]]
+        var msn = ""
 
-        for (var i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                vetor[0][i] = 5
-            } else {
-                vetor[0][i] = 3
-            }
-        }
-        for (var i = 0; i < vetor.length; i++) {
-            vetor[i] = vetor[i].join(' | ')
+        function fibonacci(n) {
+          if (n <= 1) {
+            return n
+          } else {
+            return fibonacci(n - 1) + fibonacci(n - 2)
+          }
         }
 
-        console.log(vetor)
-        
-        document.getElementById("idOut").innerHTML = vetor
-        </script>
+        var sequenciaFibonacci = [];
+          for (var i = 0; i < 15; i++) {
+            sequenciaFibonacci.push(fibonacci(i))
+          }
+
+        document.getElementById("idOut").innerHTML = sequenciaFibonacci.join(", ")
+</script>
+
 </body>
 </html>
