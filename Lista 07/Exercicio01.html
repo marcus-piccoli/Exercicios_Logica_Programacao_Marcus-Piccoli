@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+        }
+    </style>
+<body>
+    <h2>Notas dos Alunos</h2>
+
+    <div id="idNotas"></div>
+    <button onclick="adicionarNota()">Adicionar Nota</button>
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        var notas = []
+
+        function adicionarNota() {
+            let div = document.getElementById("idNotas")
+            let input = document.createElement("input") //adiciona input para cada vez que clicamos no botao da função
+            input.type = "number"
+            input.placeholder = "Insira a nota do aluno"
+            div.appendChild(input) //adiciona uma div
+        }
+
+        function calcular() {
+            let inputs = document.getElementById("idNotas").getElementsByTagName("input")
+            for(let i=0; i<inputs.length; i++) {
+                notas.push(Number(inputs[i].value))
+            }
+
+            let soma = 0
+            let acimaMedia = 0
+            let maiorNota = Math.max(...notas)
+            let posicoes = []
+
+            for(let i=0; i<notas.length; i++) {
+                soma += notas[i]
+                if(notas[i] == maiorNota) {
+                    posicoes.push(i + 1)
+                }
+            }
+
+            let media = (soma / notas.length).toFixed(2)
+
+            for(let i=0; i<notas.length; i++) {
+                if(notas[i] > media) {
+                acimaMedia++
+            }
+            }
+
+            alert("Média da turma: " + media +
+                "\nAlunos acima da média: " + acimaMedia +
+                "\nMaior nota: " + maiorNota +
+                "\nPosições da maior nota: " + posicoes);
+            location.reload()
+        }
+</script>
+</body>
+</html>
