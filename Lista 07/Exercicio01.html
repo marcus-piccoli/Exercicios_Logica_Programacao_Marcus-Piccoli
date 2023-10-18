@@ -18,6 +18,7 @@
     <div id="idNotas"></div>
     <button onclick="adicionarNota()">Adicionar Nota</button>
     <button onclick="calcular()">Calcular</button>
+    <button onclick="reiniciar()">Reiniciar</button>
 
     <script>
         var notas = []
@@ -59,9 +60,17 @@
             alert("Média da turma: " + media +
                 "\nAlunos acima da média: " + acimaMedia +
                 "\nMaior nota: " + maiorNota +
-                "\nPosições da maior nota: " + posicoes);
-            location.reload()
-        }
+                "\nPosições da maior nota: " + posicoes)
+
+            console.log("Média da turma: " + media +
+                "\nAlunos acima da média: " + acimaMedia +
+                "\nMaior nota: " + maiorNota +
+                "\nPosições da maior nota: " + posicoes)
+            }
+            
+            function reiniciar() {
+                location.reload()
+            }
 </script>
 </body>
 </html>

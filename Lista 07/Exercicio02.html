@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Insira os nomes e idades:</h2>
+
+    <div id="inputFields"></div>
+
+    <button onclick="showMinors()">Mostrar menores de idade</button>
+
+    <p id="result"></p>
+
+    <script>
+        var names = []
+        var ages = []
+
+    window.onload = function() {
+        var container = document.getElementById('inputFields')
+        for (var i = 0; i < 9; i++) {
+            container.innerHTML += 'Nome: <input type="text" id="name' + i + '"><br>Idade: <input type="number" id="age' + i + '"><br><br>'
+        }
+        }
+
+        function showMinors() {
+            for (var i = 0; i < 9; i++) {
+                names[i] = document.getElementById('name' + i).value
+                ages[i] = document.getElementById('age' + i).value
+            }
+  
+            var result = ''
+            for (var i = 0; i < 9; i++) {
+                if (ages[i] < 18) {
+                result += 'Nome: ' + names[i] + ', Idade: ' + ages[i] + '<br>'
+                }
+            }
+  
+            document.getElementById('result').innerHTML = result
+        }
+    </script>
+</body>
+</html>

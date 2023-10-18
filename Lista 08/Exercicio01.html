@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="idFrutas">Frutas:</label><br>
+    <input id="inputFrutas" list="idFrutas">
+    <datalist id="idFrutas">
+        <!-- Novos campos aparecerão aqui -->
+    </datalist>
+
+    <button onclick="reiniciar()">Reiniciar</button>
+
+    <script>
+        var frutas = ["tomate", "morango", "limão", "Abacaxi", "Pêra", "Uva"]
+
+        var dataList = document.getElementById("idFrutas")
+        var inputFrutas = document.getElementById("inputFrutas")
+
+        for (var i = 0; i < frutas.length; i++) {
+            var opcoes = document.createElement('option')
+            opcoes.innerText = frutas[i]
+            opcoes.id = i
+            dataList.appendChild(opcoes)
+        }
+
+        function reiniciar() {
+            inputFrutas.value = ''
+        }
+    </script>
+</body>
+
+</html>
