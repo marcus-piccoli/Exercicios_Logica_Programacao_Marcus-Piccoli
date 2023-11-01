@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas e Respostas (Capitais)</title>
+</head>
+
+<body>
+    <label for="numRodadas">Número de rodadas:</label>
+    <input type="number" id="numRodadas" name="numRodadas" min="1">
+    <button onclick="jogar()">Iniciar Jogo</button>
+    <div id="resultados"></div>
+
+    <script>
+        var estadosCapitais = {
+            "Acre": "Rio Branco",
+            "Alagoas": "Maceió",
+            "Amapá": "Macapá",
+            "Amazonas": "Manaus",
+            "Bahia": "Salvador",
+            "Ceará": "Fortaleza",
+            "Distrito Federal": "Brasília",
+            "Espírito Santo": "Vitória",
+            "Goiás": "Goiânia",
+            "Maranhão": "São Luís",
+            "Mato Grosso": "Cuiabá",
+            "Mato Grosso do Sul": "Campo Grande",
+            "Minas Gerais": "Belo Horizonte",
+            "Pará": "Belém",
+            "Paraíba": "João Pessoa",
+            "Paraná": "Curitiba",
+            "Pernambuco": "Recife",
+            "Piauí": "Teresina",
+            "Rio de Janeiro": "Rio de Janeiro",
+            "Rio Grande do Norte": "Natal",
+            "Rio Grande do Sul:": "Porto Alegre",
+            "Rondônia": "Porto Velho",
+            "Roraima": "Boa Vista",
+            "Santa Catarina": "Florianópolis",
+            "São Paulo": "São Paulo",
+            "Sergipe": "Aracaju",
+            "Tocantins": "Palmas"
+        }
+
+        var jogadores = [
+            { nome: "Jogador 1", pontos: 0 },
+            { nome: "Jogador 2", pontos: 0 },
+            { nome: "Jogador 3", pontos: 0 },
+            { nome: "Jogador 4", pontos: 0 }
+        ];
+
+        function sortearEstado() {
+            var estados = Object.keys(estadosCapitais)
+            var estadoSorteado = estados[Math.floor(Math.random() * estados.length)]
+            return estadoSorteado
+        }
+
+        function removerAcentos(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "") //normaliza as palavras deixando tudo em minusculo e separando caracteres de acentos
+            //depois com o replace ele apaga os acentos
+        }
+
+        function verificarResposta(estado, capital) {
+            var capitalCorreta = estadosCapitais[estado]
+            return removerAcentos(capitalCorreta.toLowerCase()) === removerAcentos(capital.toLowerCase())
+        }
+
+        function jogar() {
+            // Redefine a pontuação dos jogadores
+            for (var i = 0; i < jogadores.length; i++) {
+                jogadores[i].pontos = 0
+            }
+
+            var numRodadas = document.getElementById("numRodadas").value
+
+            for (var j = 0; j < numRodadas; j++) {
+                for (var i = 0; i < jogadores.length; i++) {
+                    var estado = sortearEstado()
+                    var capital = prompt(jogadores[i].nome + ", qual é a capital do estado " + estado + "?")
+                    if (verificarResposta(estado, capital)) {
+                        jogadores[i].pontos++
+                    }
+                }
+            }
+
+            // Ordena os jogadores por pontuação em ordem decrescente apenas antes de exibir os resultados
+            var jogadoresOrdenados = jogadores.slice().sort(function (a, b) { return b.pontos - a.pontos; })
+
+            var resultados = document.getElementById("resultados")
+            resultados.innerHTML = ""
+
+            var maiorPontuacao = jogadoresOrdenados[0].pontos
+
+            // Cria uma lista dos jogadores com a maior pontuação
+            var vencedores = jogadoresOrdenados.filter(function (jogador) {
+                return jogador.pontos === maiorPontuacao
+            }).map(function (jogador) {
+                return jogador.nome
+            })
+
+            // Mostra um alerta com o(s) vencedor(es)
+            alert("O(s) vencedor(es) é/são: " + vencedores.join(", ") + " com " + maiorPontuacao + " ponto(s)!")
+
+            for (var i = 0; i < jogadoresOrdenados.length; i++) {
+                resultados.innerHTML += jogadoresOrdenados[i].nome + ": " + jogadoresOrdenados[i].pontos + " pontos<br>"
+            }
+        }
+    </script>
+</body>
+
+</html>
