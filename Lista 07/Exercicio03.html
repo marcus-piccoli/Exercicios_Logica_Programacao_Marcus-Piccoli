@@ -18,7 +18,7 @@
                 <input type="text" class="form-control" id="idNome" name="nome"><br>
             </div>
             <div class="mb-3">
-                <label for="sexo" id="sexo">Sexo</label><br>
+                <label for="sexo" id="idSexo">Sexo</label><br>
                 <input class="form-check-input" type="radio" id="idFeminino" name="sexo" value="f">
                 <label for="feminino">Feminino</label>
                 <input class="form-check-input" type="radio" id="idMasculino" name="sexo" value="m">
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
                 <label for="salario">Salário</label><br>
-                <input type="text" id="salario" name="salario"><br>
+                <input type="text" id="idSalario" name="salario"><br>
             </div>
             <div>
                 <button class="my-2 btn btn-outline-primary" onclick="adicionarFuncionario()">Adicionar Funcionário</button><br>
@@ -55,9 +55,9 @@
                     break
                 }
             }
-            salario.push(document.getElementById("salario").value)
+            salario.push(document.getElementById("idSalario").value)
             document.getElementById("idNome").value = ""
-            document.getElementById("salario").value = ""
+            document.getElementById("idSalario").value = ""
         }
 
         function mostrarFuncionarias() {
