@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="container p-5 my-5 bg-dark text-white">
+    <div class="text-center">
+        <h2 class="text-center">Funcionários</h2>
+        <div>
+            <div class="mb-3 mt-3">
+                <label for="nome">Nome</label><br>
+                <input type="text" class="form-control" id="idNome" name="nome"><br>
+            </div>
+            <div class="mb-3">
+                <label for="sexo" id="sexo">Sexo</label><br>
+                <input class="form-check-input" type="radio" id="idFeminino" name="sexo" value="f">
+                <label for="feminino">Feminino</label>
+                <input class="form-check-input" type="radio" id="idMasculino" name="sexo" value="m">
+                <label for="feminino">Masculino</label>
+                <input class="form-check-input" type="radio" id="idOutro" name="sexo" value="o">
+                <label for="outro">Outro</label><br>
+            </div>
+            <div class="mb-3">
+                <label for="salario">Salário</label><br>
+                <input type="text" id="salario" name="salario"><br>
+            </div>
+            <div>
+                <button class="my-2 btn btn-outline-primary" onclick="adicionarFuncionario()">Adicionar Funcionário</button><br>
+                <button class="my-2 btn btn-outline-primary" onclick="mostrarFuncionarias()">Mostrar Funcionárias</button>
+            </div>
+        </div>
+
+        <output id="idOut"></output>
+
+    </div>
+
+    <script>
+        var nome = []
+        var sexo = []
+        var salario = []
+
+        function adicionarFuncionario() {
+            nome.push(document.getElementById("idNome").value)
+            let radios = document.getElementsByName('sexo')
+            for (let i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    sexo.push(radios[i].value)
+                    radios[i].checked = false
+                    break
+                }
+            }
+            salario.push(document.getElementById("salario").value)
+            document.getElementById("idNome").value = ""
+            document.getElementById("salario").value = ""
+        }
+
+        function mostrarFuncionarias() {
+            let text = ""
+            let i
+            for (i = 0; i < nome.length; i++) {
+                if (sexo[i] == 'f' && salario[i] > 5000) {
+                    text += nome[i] + ": R$" + salario[i] + "<br>"
+                }
+            }
+            document.getElementById("idOut").innerHTML = text
+        }
+    </script>
+</body>
+
+</html>
