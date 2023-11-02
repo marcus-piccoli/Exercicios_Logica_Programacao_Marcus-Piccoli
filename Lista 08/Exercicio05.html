@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Ordenar Números</h2>
+
+    <button onclick="myFunction()">Ordenar</button>
+
+    <output id="idOut"></output>
+
+    <script>
+        var numeros = []
+        for (let i = 0; i < 10; i++) {
+            let numero = prompt("Digite o " + (i + 1) + "º número:")
+            numeros.push(parseInt(numero))
+        }
+
+        function myFunction() {
+            let order = prompt("Digite 'c' para ordem crescente ou 'd' para ordem decrescente:")
+            if (order === 'c') {
+                numeros.sort(function (a, b) { return a - b })
+            } else if (order === 'd') {
+                numeros.sort(function (a, b) { return b - a })
+            }
+            document.getElementById("idOut").innerHTML = numeros
+        }
+    </script>
+</body>
+
+</html>
